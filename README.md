@@ -1,3 +1,3 @@
-# mthurston-angular-cdk-a11y
+#a11y practice
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/mthurston-angular-cdk-a11y)
+Developed a sample app on @angular/cdk/a11y on stackblitz for NVDA testing.
