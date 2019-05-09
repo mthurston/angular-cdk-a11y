@@ -1,0 +1,114 @@
+<hello name="{{ name }}"></hello>
+<div>
+	<p><span aria-hidden="true" title="this text has aria hidden and will trigger live announcer." (mouseover)="announce('angular accessibility', 'polite')">angular a11y</span></p>  
+</div>
+
+<div>
+	<h2>Focus Monitor</h2>
+	<ul>
+		<li>
+			<button #fmButton>focus monitored button</button>&nbsp;
+      <p>
+        status: {{fmButtomOrigin}}<br/>
+        <span (click)="fmButton.focus()" style="text-decoration: underline">click to focus "focus monitored button" programmatically</span>
+      </p>
+  </li>  
+  <li>
+    <input #fmInput placeholder="focus monitored input" />
+    <p>status: {{fmInputOrigin}}<br/>
+        <span (click)="fmInput.focus()" style="text-decoration: underline">click to focus "focus monitored input" programmatically</span></p>
+  </li>
+  <li>
+    <input #fmInputDisabled placeholder="focus monitored input (disabled)" [disabled]="true"/>
+    <p>status: {{fmInputDisabledOrigin}}<br/>
+        <span (click)="fmInputDisabled.focus()" style="text-decoration: underline">click to focus "focus monitored input (disabled)" programmatically</span></p>
+  </li>
+
+  <li>
+    <input #fmInputReadonly placeholder="focus monitored input (readonly)" [readonly]="true"/>
+    <p>status: {{fmInputReadonlyOrigin}}<br/>
+        <span (click)="fmInputReadonly.focus()" style="text-decoration: underline">click to focus "focus monitored input (readonly)" programmatically</span></p>
+  </li>
+  </ul>
+</div>
+
+<div>
+  <h2>ListKeyManager</h2>
+
+  <p>There are two kinds of ListKeyManagers, FocusManager and ActiveDescendantManager.  When combined you can build aria-role="menu" and aria-role="listbox" type components accessibly.</p>
+
+  <ul>
+    <li>
+    <a href="https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html">
+    Navigation Menubar Example
+    </a>
+    </li>
+    <li>
+    <a href="https://material.angular.io/cdk/a11y/api#FocusKeyManager">
+    FocusKeyManager API
+    </a>      
+    </li>
+    <li>
+    <a href="https://material.angular.io/cdk/a11y/api#ActiveDescendantKeyManager">
+      ActiveDescendantKeyManager API
+    </a>
+    </li>
+  </ul>
+
+</div>
+
+<div>
+  <h2>InteractivityChecker</h2>
+  <input #interactivityInput placeholder="modify interactivity of this input with below buttons" [readonly]="isIcInputReadonly" [hidden]="isIcInputHidden"> 
+
+  <p>
+    <button (click)="interactivityInput.disabled = !interactivityInput.disabled">
+      {{interactivityInput.disabled ? 'enable' : 'disable'}}
+    </button>
+    &nbsp;
+    <button (click)="isIcInputReadonly = !isIcInputReadonly">
+      {{isIcInputReadonly ? 'editable' : 'readonly'}}
+    </button>
+    &nbsp;
+    <button (click)="isIcInputHidden = !isIcInputHidden">
+      {{isIcInputHidden ? 'show' : 'hide'}}
+    </button>
+    <br/>
+  </p>
+  <ul aria-roledescription="states and values for which the InteractivityChecker service monitors.">    
+    <li>Disabled: {{interactivityChecker.isDisabled(interactivityInput) ? 'true' : 'false'}}</li>
+    <li>Focusable: {{interactivityChecker.isFocusable(interactivityInput) ? 'true' : 'false'}}</li>
+    <li>Tabbable: {{interactivityChecker.isTabbable(interactivityInput) ? 'true' : 'false'}}</li>
+    <li>Visible: {{interactivityChecker.isVisible(interactivityInput) ? 'true' : 'false'}}</li>
+  </ul>
+</div>
+
+<div #trapThis>
+  <h2>FocusTrap</h2>
+  <p>
+  The following inputs/buttons will not leave this section once focused.
+  </p>
+  <p>
+    <input placeholder="focus trap input 1">
+  </p>
+  <p>
+    <input placeholder="focus trap input 2">
+  </p>
+  <p>
+  <button type="button">focus trap button 1</button>
+  &nbsp;
+  <button type="button">focus trap button 2</button>
+  </p>
+</div>
+
+<div>
+  <h2>Live Announcer</h2>
+  <p>
+  <input #inputToAnnounce placeholder="announce this text"/>
+  </p>
+  <p>
+  <button type="button" (click)="testLiveAnnouncer('assertive')">announce assertive</button>
+
+  <button type="button" (click)="testLiveAnnouncer('polite')">announce polite</button>
+  </p>
+</div>
