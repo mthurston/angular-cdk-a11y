@@ -8,7 +8,7 @@ import { FocusMonitor, FocusOrigin, LiveAnnouncer, InteractivityChecker, FocusTr
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnDestroy, AfterViewInit {
-  name = 'mthurston Angular cdk a11y';
+  name = 'Angular cdk a11y';
   isIcInputReadonly: boolean = false;
   isIcInputHidden: boolean = false;
 
